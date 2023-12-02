@@ -1,4 +1,5 @@
 import argparse
+from time import time
 
 DIGITS = {'one':1, 'two':2, 'three':3, 'four':4, 'five':5, 'six':6, 'seven':7, 
           'eight':8, 'nine':9}
@@ -50,5 +51,12 @@ def part_2(filename: str) -> int:
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('input_file', type=str)
-    print(part_1(parser.parse_args().input_file))
-    print(part_2(parser.parse_args().input_file))
+    input_file = parser.parse_args().input_file
+    print(f" " * 8, "{:<10s}|{:>10s}".format("ANSWER", "TIME"), 
+          "\n", "-" * 42, sep="")
+    t = time()
+    print(f"Part 1: {part_1(input_file):<10d}", 
+          f"|{((time() - t) * 1000):10.2f} milliseconds", sep="")
+    t = time()
+    print(f"Part 2: {part_2(input_file):<10d}", 
+          f"|{((time() - t) * 1000):10.2f} milliseconds", sep="")

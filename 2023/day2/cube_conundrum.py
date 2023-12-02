@@ -1,6 +1,7 @@
 import argparse
 from numpy import prod
-from typing import Dict, Tuple
+from time import time
+from typing import Dict
 
 REF_AMOUNT = {'red': 12, 'green': 13, 'blue': 14}
 
@@ -30,5 +31,12 @@ def part_2(filepath: str) -> int:
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('input_file', type=str)
-    print(part_1(parser.parse_args().input_file))
-    print(part_2(parser.parse_args().input_file))
+    input_file = parser.parse_args().input_file
+    print(f" " * 8, "{:<10s}|{:>10s}".format("ANSWER", "TIME"), 
+          "\n", "-" * 42, sep="")
+    t = time()
+    print(f"Part 1: {part_1(input_file):<10d}", 
+          f"|{((time() - t) * 1000):10.2f} milliseconds", sep="")
+    t = time()
+    print(f"Part 2: {part_2(input_file):<10d}", 
+          f"|{((time() - t) * 1000):10.2f} milliseconds", sep="")
