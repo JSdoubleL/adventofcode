@@ -3,7 +3,23 @@ import argparse
 DIGITS = {'one':1, 'two':2, 'three':3, 'four':4, 'five':5, 'six':6, 'seven':7, 
           'eight':8, 'nine':9}
 
-def parse_calibration(filename: str) -> int:
+def part_1(filename: str) -> int:
+    with open(filename, "r") as f:
+        result = 0
+        for line in f:
+            first, last = None, None
+            for c in line:
+                if c.isdigit():
+                    first = int(c)
+                    break
+            for c in reversed(line):
+                if c.isdigit():
+                    last = int(c)
+                    break
+            result += first * 10 + last
+        return result
+    
+def part_2(filename: str) -> int:
     def process_digit(c: str, reverse: bool = False) -> int:
         if not reverse and c[-1].isdigit():
             return int(c[-1])
@@ -34,4 +50,5 @@ def parse_calibration(filename: str) -> int:
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('input_file', type=str)
-    print(parse_calibration(parser.parse_args().input_file))
+    print(part_1(parser.parse_args().input_file))
+    print(part_2(parser.parse_args().input_file))
