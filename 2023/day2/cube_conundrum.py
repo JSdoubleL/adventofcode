@@ -1,6 +1,6 @@
 import argparse
 from numpy import prod
-from typing import Dict, Tuple
+from typing import Dict
 
 REF_AMOUNT = {'red': 12, 'green': 13, 'blue': 14}
 
