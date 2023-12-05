@@ -4,6 +4,8 @@ from numpy import prod
 from time import time
 from typing import List, Tuple
 
+DAY = 3
+
 def part_1(filepath: str) -> int:
     def process_window(cur: str, m: List[bool]) -> int:
         nums = []

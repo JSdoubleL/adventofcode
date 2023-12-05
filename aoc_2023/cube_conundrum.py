@@ -3,6 +3,7 @@ from numpy import prod
 from time import time
 from typing import Dict
 
+DAY = 2
 REF_AMOUNT = {'red': 12, 'green': 13, 'blue': 14}
 
 def parse_game(game: str) -> Dict[str, int]:

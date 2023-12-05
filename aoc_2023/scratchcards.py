@@ -1,6 +1,8 @@
 import argparse
 from time import time
 
+DAY = 4
+
 def score_card(card: str) -> int:
     winning, yours = [side.split()
                       for side in card.strip().split(': ')[1].split(' | ')]

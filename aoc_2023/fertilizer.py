@@ -2,6 +2,8 @@ import argparse
 from time import time
 from typing import List, Tuple
 
+DAY = 5
+
 def parse_almanac(almanac_text: str) -> Tuple[List[int], List[List[List[int]]]]:
     almanac_text = almanac_text.strip().split('\n\n')
     seeds = [int(s) for s in almanac_text[0].split(': ')[1].split()]

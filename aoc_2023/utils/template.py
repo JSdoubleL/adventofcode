@@ -1,13 +1,15 @@
 import argparse
 from time import time
 
+DAY = -1
+
 def part_1(filepath: str) -> int:
     with open(filepath, "r") as f:
-        pass
+        raise NotImplementedError("part_1 has not been implemented")
 
 def part_2(filepath: str) -> int:
     with open(filepath, "r") as f:
-        pass
+        raise NotImplementedError("part_2 has not been implemented")
 
 if __name__=="__main__":
     parser = argparse.ArgumentParser()
