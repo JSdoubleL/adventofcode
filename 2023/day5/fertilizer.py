@@ -60,8 +60,7 @@ def map_seed_2_electric_boogaloo(seed: int, almanac: List[List[List[int]]]) -> i
             mapped_ranges.extend([s for s in cur_seeds])
             return min(recursive_func(r, sec_n + 1) 
                        for r in flatten_ranges(mapped_ranges))
-        else:
-            return seed[0]
+        return seed[0]
     return recursive_func(seed, 0)
 
 def part_1(filepath: str) -> int:
