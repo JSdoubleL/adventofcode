@@ -2,7 +2,7 @@ import argparse
 from itertools import product
 from numpy import prod
 from time import time
-from typing import List, Tuple
+from typing import List, Tuple, Union
 
 DAY = 3
 
@@ -30,8 +30,8 @@ def part_1(filepath: str) -> int:
 
 
 def part_2(filepath: str) -> int:
-    def score_gear(i: int, j: int, engine: List[List[str]]) -> int:
-        def scan_word(i: int, j: int) -> Tuple[int, int, int]:
+    def score_gear(i: int, j: int, engine: List[str]) -> int:
+        def scan_word(i: int, j: int) -> Union[Tuple[int, int], Tuple[None, None]]:
             if not engine[i][j].isdigit():
                 return None, None
             start, end = j, j
@@ -40,6 +40,7 @@ def part_2(filepath: str) -> int:
             while end < len(engine[i]) and engine[i][end].isdigit():
                 end += 1
             return start, int(engine[i][start:end])
+        
         nums = dict()
         for k, l in product(range(max(0, i - 1), min(i + 2, len(engine))),
                             range(max(0, j - 1), min(j + 2, len(engine[i])))):

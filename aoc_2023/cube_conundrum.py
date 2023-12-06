@@ -1,12 +1,12 @@
 import argparse
 from numpy import prod
 from time import time
-from typing import Dict
+from typing import Dict, List
 
 DAY = 2
 REF_AMOUNT = {'red': 12, 'green': 13, 'blue': 14}
 
-def parse_game(game: str) -> Dict[str, int]:
+def parse_game(game: str) -> List[Dict[str, int]]:
     _, description = game.split(':')
     games = [{c.strip().split(' ')[1]:int(c.strip().split(' ')[0]) for c in g.split(',')} 
              for g in description.split(';')]
